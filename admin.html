@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RenderRack Admin</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#0f172a;
+color:white;
+text-align:center;
+}
+
+.container{
+margin-top:40px;
+}
+
+input{
+display:block;
+margin:10px auto;
+padding:10px;
+width:250px;
+border-radius:6px;
+border:none;
+}
+
+button{
+padding:10px 20px;
+border:none;
+background:#22c55e;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Add Product</h2>
+
+<input id="name" placeholder="Product Name">
+
+<input id="price" placeholder="Price">
+
+<input id="category" placeholder="Category (GPU / CPU / RAM)">
+
+<input id="condition" placeholder="Condition (New / Used)">
+
+<input id="image" placeholder="Image URL">
+
+<input id="contact" placeholder="Contact Link (Telegram / WhatsApp)">
+
+<button onclick="addProduct()">Add Product</button>
+
+</div>
+
+<script>
+
+function addProduct(){
+
+let product = {
+
+name: document.getElementById("name").value,
+
+price: document.getElementById("price").value,
+
+category: document.getElementById("category").value,
+
+condition: document.getElementById("condition").value,
+
+image: document.getElementById("image").value,
+
+contact: document.getElementById("contact").value
+
+}
+
+let products = JSON.parse(localStorage.getItem("products")) || []
+
+products.push(product)
+
+localStorage.setItem("products", JSON.stringify(products))
+
+alert("Product Added Successfully!")
+
+}
+
+</script>
+
+</body>
+</html>
