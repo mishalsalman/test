@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+</head>
+
+<body>
+
+<h2>Add Product</h2>
+
+<input id="name" placeholder="Product name"><br><br>
+<input id="price" placeholder="Price"><br><br>
+<input id="condition" placeholder="Condition"><br><br>
+<input id="image" placeholder="Image URL"><br><br>
+<input id="contact" placeholder="Telegram / WhatsApp link"><br><br>
+
+<button onclick="addProduct()">Add Product</button>
+
+<script>
+
+function addProduct(){
+
+let product = {
+name: document.getElementById("name").value,
+price: document.getElementById("price").value,
+condition: document.getElementById("condition").value,
+image: document.getElementById("image").value,
+contact: document.getElementById("contact").value
+}
+
+let products = JSON.parse(localStorage.getItem("products")) || []
+
+products.push(product)
+
+localStorage.setItem("products", JSON.stringify(products))
+
+alert("Product added!")
+
+}
+
+</script>
+
+</body>
+</html>
